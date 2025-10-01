@@ -64,18 +64,6 @@ export default function Footer({ darkMode }: FooterProps) {
             </a>
           </div>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-8 pt-8 border-t border-gray-700 text-center"
-        >
-          <p className="text-gray-400 text-sm">
-            Construído com ❤️ no Rio de Janeiro
-          </p>
-        </motion.div>
       </div>
     </footer>
   );

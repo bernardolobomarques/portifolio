@@ -16,28 +16,44 @@ export default function Projects({ darkMode }: ProjectsProps) {
       codeUrl: 'https://github.com/bernardolobomarques/gavea'
     },
     {
-      title: 'Inbetweenfriends',
+      title: 'Entre Amigas',
       description: 'Aplicação full-stack TypeScript em produção com deploy automatizado.',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop',
       technologies: ['TypeScript', 'React', 'Node.js', 'Vercel'],
-      liveUrl: 'https://inbetweenfriends.vercel.app',
+      liveUrl: 'https://entreamigas.vercel.app',
       codeUrl: 'https://github.com/bernardolobomarques/inbetweenfriends'
     },
     {
-      title: 'Assembly Memory Project',
-      description: 'Programação de baixo nível em Assembly para microcontroladores ATMEGA2560.',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=500&h=300&fit=crop',
-      technologies: ['Assembly', 'ATMEGA2560', 'Sistemas Embarcados'],
+      title: 'Blueddit',
+      description: 'Estrutura de backend desenvolvida em Java para rede social estilo Reddit, utilizando Spring Boot e MySQL. Projeto demonstrando arquitetura de sistema, modelagem de dados e implementação de funcionalidades core como autenticação, posts, comentários e votação, com foco em boas práticas e código limpo.',
+      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=500&h=300&fit=crop',
+      technologies: ['Java', 'Spring Boot', 'MySQL', 'Arquitetura'],
       liveUrl: null,
-      codeUrl: 'https://github.com/bernardolobomarques/assembly-memory-project'
+      codeUrl: 'https://github.com/bernardolobomarques/blueddit'
     },
     {
       title: 'Mãos que Valen',
       description: 'Website institucional para ONG desenvolvido com TypeScript e design responsivo.',
       image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop',
       technologies: ['TypeScript', 'React', 'Design Responsivo'],
-      liveUrl: null,
+      liveUrl: 'https://maosquevalen.org.br',
       codeUrl: 'https://github.com/bernardolobomarques/maosquevalen'
+    },
+    {
+      title: 'Aplicação de Sistemas Embarcados',
+      description: 'Sistema IoT completo integrando dois projetos embarcados: monitoramento em tempo real de consumo energético (medição de tomadas individuais e consumo geral) e sensor de nível de água para caixas d\'água com alertas e análise de gastos, permitindo gestão inteligente de recursos.',
+      image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=500&h=300&fit=crop',
+      technologies: ['IoT', 'Sistemas Embarcados', 'Sensores', 'Tempo Real'],
+      liveUrl: null,
+      codeUrl: null
+    },
+    {
+      title: 'Assembly Memory Project',
+      description: 'Programação de baixo nível em Assembly para microcontroladores ATMEGA2560.',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=300&fit=crop',
+      technologies: ['Assembly', 'ATMEGA2560', 'Sistemas Embarcados'],
+      liveUrl: null,
+      codeUrl: 'https://github.com/bernardolobomarques/assembly-memory-project'
     }
   ];
 
@@ -122,19 +138,28 @@ export default function Projects({ darkMode }: ProjectsProps) {
                       <ArrowTopRightOnSquareIcon className="ml-1 h-4 w-4" />
                     </a>
                   )}
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                      darkMode
-                        ? 'border border-gray-600 text-gray-300 hover:bg-gray-700'
-                        : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
-                    }`}
-                  >
-                    {project.liveUrl ? 'Código' : 'Ver Código'}
-                    <CodeBracketIcon className="ml-1 h-4 w-4" />
-                  </a>
+                  {project.codeUrl && (
+                    <a
+                      href={project.codeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                        darkMode
+                          ? 'border border-gray-600 text-gray-300 hover:bg-gray-700'
+                          : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {project.liveUrl ? 'Código' : 'Ver Código'}
+                      <CodeBracketIcon className="ml-1 h-4 w-4" />
+                    </a>
+                  )}
+                  {!project.codeUrl && !project.liveUrl && (
+                    <span className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg ${
+                      darkMode ? 'text-gray-500' : 'text-gray-400'
+                    }`}>
+                      Em breve
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.div>

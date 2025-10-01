@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   EnvelopeIcon, 
   PhoneIcon, 
@@ -30,16 +31,47 @@ export default function Contact({ darkMode }: ContactProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Credenciais do EmailJS
+      const serviceId = 'service_n03lnn7';
+      const templateId = 'template_6f9tfyo';
+      const publicKey = 'J6-iznvEgOhE6gUL3';
+
+      console.log('🔧 Debug EmailJS:', { serviceId, templateId, publicKey });
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      };
+
+      console.log('📧 Enviando email com params:', templateParams);
+
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      console.log('✅ Email enviado com sucesso:', response);
       setSubmitStatus('success');
-      setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
       
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 1000);
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error: any) {
+      console.error('❌ Erro ao enviar email:', error);
+      console.error('Detalhes do erro:', error.text || error.message);
+      setSubmitStatus('error');
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -298,7 +330,17 @@ export default function Contact({ darkMode }: ContactProps) {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-100 border border-green-200 text-green-700 rounded-lg text-center"
                 >
-                  Mensagem enviada com sucesso! Responderei em breve.
+                  ✅ Mensagem enviada com sucesso! Responderei em breve.
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-100 border border-red-200 text-red-700 rounded-lg text-center"
+                >
+                  ❌ Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato diretamente pelo email.
                 </motion.div>
               )}
             </form>

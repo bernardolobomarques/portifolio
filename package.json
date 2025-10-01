@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",
     "@hono/zod-validator": "^0.5.0",
     "framer-motion": "^12.23.22",
@@ -17,8 +18,8 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.12.0",
     "@eslint/js": "9.25.1",
-    "@getmocha/vite-plugins": "latest",
     "@getmocha/users-service": "^0.0.4",
+    "@getmocha/vite-plugins": "latest",
     "@types/node": "22.14.1",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",

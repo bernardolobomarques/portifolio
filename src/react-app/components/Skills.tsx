@@ -48,30 +48,30 @@ export default function Skills({ darkMode }: SkillsProps) {
         { name: 'Next.js', level: 80 },
         { name: 'Chakra UI', level: 85 },
         { name: 'HTML/CSS', level: 95 },
-        { name: 'Framer Motion', level: 80 }
+        { name: 'React Native', level: 70 }
       ]
     },
     {
       title: 'Backend',
       color: 'green',
       skills: [
-        { name: 'PostgreSQL', level: 85 },
         { name: 'Java', level: 80 },
-        { name: 'Python', level: 75 },
-        { name: 'Node.js', level: 70 },
+        { name: 'Python', level: 80 },
+        { name: 'Estruturas de Dados', level: 80 },
+        { name: 'PostgreSQL', level: 75 },
         { name: 'MySQL', level: 75 },
-        { name: 'Estruturas de Dados', level: 85 }
+        { name: 'Node.js', level: 70 }
       ]
     },
     {
       title: 'Diferencial',
       color: 'purple',
       skills: [
-        { name: 'Assembly', level: 70 },
-        { name: 'Sistemas Embarcados', level: 75 },
+        { name: 'Inglês (C2)', level: 100 },
         { name: 'Git/GitHub', level: 90 },
         { name: 'Algoritmos', level: 85 },
-        { name: 'Inglês (C2)', level: 95 },
+        { name: 'Sistemas Embarcados', level: 75 },
+        { name: 'Assembly', level: 70 },
         { name: 'CI/CD', level: 80 }
       ]
     }

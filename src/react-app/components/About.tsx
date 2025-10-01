@@ -37,15 +37,17 @@ export default function About({ darkMode }: AboutProps) {
             <p className={`text-lg leading-relaxed ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Desenvolvedor full stack com foco em soluções escaláveis usando React e PostgreSQL. 
-              Experiência desde sistemas embarcados em Assembly até aplicações web modernas.
+              Desenvolvedor full stack com experiência em soluções escaláveis e arquiteturas 
+              robustas. Trabalho com tecnologias modernas no front-end e back-end, desde 
+              sistemas embarcados até aplicações web complexas, sempre focando em qualidade, 
+              performance e manutenibilidade do código.
             </p>
             <p className={`text-base leading-relaxed ${
               darkMode ? 'text-gray-400' : 'text-gray-600'
             }`}>
-              Atualmente no 4º período de Engenharia de Software no IBMEC RJ, com 
-              certificação Cambridge CPE (C2) em inglês e conhecimento sólido em 
-              estruturas de dados e algoritmos.
+              Estudante de Engenharia de Software no IBMEC RJ, com certificação Cambridge 
+              CPE (C2) em inglês e conhecimento sólido em estruturas de dados, algoritmos 
+              e boas práticas de desenvolvimento.
             </p>
 
             <div className="flex flex-wrap gap-3 mt-6">
@@ -104,8 +106,8 @@ export default function About({ darkMode }: AboutProps) {
                 {[
                   { name: 'React.js', level: 90 },
                   { name: 'TypeScript', level: 85 },
-                  { name: 'PostgreSQL', level: 85 },
-                  { name: 'Assembly', level: 70 }
+                  { name: 'PostgreSQL', level: 75 },
+                  { name: 'Back-end', level: 80 }
                 ].map((skill) => (
                   <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between text-sm">

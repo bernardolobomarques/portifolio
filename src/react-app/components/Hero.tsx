@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDownIcon, EnvelopeIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
+import { EnvelopeIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 interface HeroProps {
   darkMode: boolean;
@@ -55,9 +55,10 @@ export default function Hero({ darkMode }: HeroProps) {
           >
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                src="/src/react-app/media/bernardolobo.jpg"
                 alt="Bernardo Lobo Marques"
                 className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-2xl"
+                style={{ objectPosition: '30% 70%' }}
               />
               <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20`}></div>
             </div>
@@ -77,12 +78,12 @@ export default function Hero({ darkMode }: HeroProps) {
             <p className={`text-xl md:text-2xl font-medium mb-2 ${
               darkMode ? 'text-blue-300' : 'text-blue-600'
             }`}>
-              Desenvolvedor Full Stack • React + PostgreSQL
+              Desenvolvedor Full Stack
             </p>
             <p className={`text-lg ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              Estudante de Engenharia de Software no IBMEC RJ • 4º período
+              Estudante de Engenharia de Software no IBMEC RJ
             </p>
           </motion.div>
 
@@ -127,19 +128,6 @@ export default function Hero({ darkMode }: HeroProps) {
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="animate-bounce">
-            <ArrowDownIcon className={`h-6 w-6 ${
-              darkMode ? 'text-white/70' : 'text-gray-600'
-            }`} />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
